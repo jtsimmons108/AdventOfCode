@@ -1,10 +1,14 @@
 
 lines = open('AC_8_Start.txt').read().strip().split('\n')
-print lines
 diff = 0
 for line in lines:
-    line = ''.join([letter for letter in line])
-    print line, len(line), line[1:-1], len(str(line[1:-1]))
-    diff += len(line) - len(str(line[1:-1]))
+    print line
+    total = 0
+    for letter in line:
+        if letter in '\\"':
+            total += 2
+        else:
+            total += 1
+    diff += total - len(line) + 2
 
 print diff
